@@ -1,6 +1,5 @@
 server:
   port: 8001
-
 mybatis:
   config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
   type-aliases-package: com.ypp.entities    # 所有Entity别名类所在包
@@ -19,7 +18,7 @@ spring:
     #test-on-borrow: true
      username: root
      password: 123456789myc
-     driver-class-name: com.mysql.cj.jdbc.Driver
+     driver-class-name: com.mysql.jdbc.Driver
      url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8
 
 
