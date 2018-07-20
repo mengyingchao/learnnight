@@ -1,0 +1,48 @@
+server:
+  port: 8001
+
+mybatis:
+  config-location: classpath:mybatis/mybatis.cfg.xml        # mybatis配置文件所在路径
+  type-aliases-package: com.ypp.entities    # 所有Entity别名类所在包
+  mapper-locations:
+  - classpath:mybatis/mapper/**/*.xml  # mapper映射文件
+
+spring:
+   application:
+    name: microservicecloud-user
+   http:
+    encoding.charset: UTF-8
+    encoding.enable: true
+    encoding.force: true
+   datasource:
+    #validation-query: SELECT 1
+    #test-on-borrow: true
+     username: root
+     password: 123456789myc
+     driver-class-name: com.mysql.cj.jdbc.Driver
+     url: jdbc:mysql://127.0.0.1:3306/test?useUnicode=true&characterEncoding=utf8
+
+
+
+#pagehelper分页插件配置
+pagehelper:
+  helperDialect: mysql   #指定数据库分页类型
+  reasonable: true  #页码《=0，查询第一页，页码》=总页数 查询最后一页
+  supportMethodsArguments: true
+  params: count=countSql
+
+eureka:
+  client: #客户端注册进eureka服务列表内
+    service-url:
+       #defaultZone: http://localhost:7001/eureka
+       defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
+  instance:
+    instance-id: microservicecloud-user8001
+    prefer-ip-address: true     #访问路径可以显示IP地址
+
+info:
+  app.name: ypp-microservicecloud
+  company.name: www.ypp.com
+  build.artifactId: $project.artifactId$
+  build.version: $project.version$
+
