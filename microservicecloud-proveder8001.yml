@@ -33,7 +33,7 @@ spring:
 logging:
   level:
     com.ypp: debug
-    org.springframework.web: ebug
+    org.springframework.web: debug
     org.springframework.transaction: debug
     org.mybatis: debug
 eureka:
