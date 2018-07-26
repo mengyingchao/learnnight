@@ -1,6 +1,6 @@
 server:
     port: 8889
-spring:	
+spring:
     http:
       multipart:
         max-file-size: 1000Mb
