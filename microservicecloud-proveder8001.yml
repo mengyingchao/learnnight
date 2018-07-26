@@ -13,63 +13,9 @@ mybatis:
   - classpath:mybatis/mapper/**/*.xml
 spring:
   profiles: dev
-  application:
-    name: microservicecloud-user   #为这个服务取名，非常重要！！！！！
-  http:
-     encoding.charset: utf-8
-     encoding.enabled: true
-     encoding.force: true
-  datasource:
-     driver-class-name: com.mysql.jdbc.Driver              # mysql驱动包
-     url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf8
-     password: 123456789myc
-     username: root
-  redis:
-     host: 127.0.0.1
-     port: 6379
-     password:
-     pool:
-       max-active: 8  #最大可用连接数
-       max-wait: -1  #从连接池获取连接最大等待时间
-       max-idle: 8  #最大空闲连接数
-       min-idle: 0
-     timeout: 0   #连接超时时间
-     database:  1
-  logging:
-    level:
-      com.ypp: debug
-      org.springframework.web: debug
-      org.springframework.transaction: debug
-      org.mybatis: debug
-eureka:
-  client: #客户端注册进eureka服务列表内
-    service-url:
-       defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
-    register-with-eureka: false
-    fetch-registry: false
-  instance:
-    instance-id: microservicecloud-user8001
-    prefer-ip-address: true     #访问路径可以显示IP地址
-
-info:
-  app.name: ypp-microservicecloud
-  company.name: www.ypp.com
-  build.artifactId: $project.artifactId$
-  build.version: $project.version$
----
-server:
-  port: 8001
-
-mybatis:
-  config-location: classpath:mybatis/mybatis.cfg.xml
-  type-aliases-package: com.ypp.entity
-  mapper-locations:
-  - classpath:mybatis/mapper/**/*.xml
-spring:
-  profiles: test
-  application:
-    name: microservicecloud-user   #为这个服务取名，非常重要！！！！！
-  http:
+   application:
+    name: microservicecloud-user
+   http:
      encoding.charset: utf-8
      encoding.enabled: true
      encoding.force: true
@@ -90,19 +36,19 @@ spring:
        min-idle: 0
      timeout: 0   #连接超时时间
      database:  1
-  logging:
-    level:
-      com.ypp: debug
-      org.springframework.web: ebug
-      org.springframework.transaction: debug
-      org.mybatis: debug
+logging:
+  level:
+    com.ypp: debug
+    org.springframework.web: ebug
+    org.springframework.transaction: debug
+    org.mybatis: debug
 eureka:
   client: #客户端注册进eureka服务列表内
     service-url:
       #defaultZone: http://localhost:7001/eureka
        defaultZone: http://eureka7001.com:7001/eureka/,http://eureka7002.com:7002/eureka/,http://eureka7003.com:7003/eureka/
-    register-with-eureka: false
-    fetch-registry: false
+    register-with-eureka: true
+    fetch-registry: true
   instance:
     instance-id: microservicecloud-user8001
     prefer-ip-address: true     #访问路径可以显示IP地址
@@ -111,4 +57,6 @@ info:
   app.name: ypp-microservicecloud
   company.name: www.ypp.com
   build.artifactId: $project.artifactId$
-  build.version: $project.version$ 
+  build.version: $project.version$
+  build.version: $project.version$
+   
